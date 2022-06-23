@@ -60,11 +60,11 @@ public class NaverNewsSearch {
         }
     }
 
-    public void newsCrawling() {
+    public void newsCrawling(String keyWord) {
         List<WebElement> findGroupNewsListElement = driver.findElements(By.xpath("//*[@class]"));
         for (int i = 0; i < findGroupNewsListElement.size(); i++) {
             WebElement element = findGroupNewsListElement.get(i);
-            if (element.getText().length() > 20 && element.getText().length() < 60) {
+            if (element.getText().contains(keyWord) && element.getText().length() > 20 && element.getText().length() < 60) {
                 newsList.add(element.getText());
             }
         }

@@ -35,11 +35,11 @@ public class NaverNewsTest {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        naverNewsSearch.newsCrawling();
+        naverNewsSearch.newsCrawling("누리호");
         naverNewsSearch.swipeScreen(Direction.UP);
-        naverNewsSearch.newsCrawling();
+        naverNewsSearch.newsCrawling("누리호");
         naverNewsSearch.swipeScreen(Direction.UP);
-        naverNewsSearch.newsCrawling();
+        naverNewsSearch.newsCrawling("누리호");
         naverNewsSearch.getNewsList();
     }
 
