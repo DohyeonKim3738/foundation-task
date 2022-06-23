@@ -14,13 +14,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class NaverNewsSearch {
+public class GoogleNewsSearch {
 
     public AndroidDriver driver;
     public WebDriverWait wait;
     public ArrayList<String> newsList = new ArrayList<>();
 
-    public NaverNewsSearch(AndroidDriver driver, WebDriverWait wait) {
+    public GoogleNewsSearch(AndroidDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }
