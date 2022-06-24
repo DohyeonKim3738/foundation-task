@@ -45,3 +45,18 @@
   - keyWord 를 포함하고 있는 뉴스 제목을 크롤링하여 저장 및 출력
 - @AfterMethod
   - driver 종료
+
+## google
+- 구글 캘린더 API 다루기
+### https://console.cloud.google.com/
+    Setting
+    1. 라이브러리
+      Google Calendar API 추가
+    2. API 및 서비스 > 사용자 인증 정보
+      사용자 인증 정보 만들기 > OAuth 2.0 클라이언트 ID 생성
+      데스크톱 앱
+    3. OAuth 클라이언트 json 다운로드
+      src > main > resources > credentials.json 으로 저장 (이름 변경 가능)
+
+### main.java.google.calendar.CalendarQuickstart
+    - https://developers.google.com/calendar/api/quickstart/java 참조

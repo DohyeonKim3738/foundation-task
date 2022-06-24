@@ -9,6 +9,7 @@
   <version>1.0-SNAPSHOT</version>
 
   <dependencies>
+    <!-- Selenium -->
     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
@@ -16,6 +17,7 @@
       <version>4.1.4</version>
     </dependency>
 
+    <!-- Appium -->
     <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
     <dependency>
       <groupId>io.appium</groupId>
@@ -38,6 +40,7 @@
       <scope>test</scope>
     </dependency>
 
+    <!-- Junit -->
     <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
     <dependency>
       <groupId>org.assertj</groupId>
@@ -68,6 +71,36 @@
       <artifactId>junit-jupiter-engine</artifactId>
       <version>5.8.2</version>
       <scope>test</scope>
+    </dependency>
+
+    <!-- Google -->
+    <!-- https://mvnrepository.com/artifact/com.google.api-client/google-api-client -->
+    <dependency>
+      <groupId>com.google.api-client</groupId>
+      <artifactId>google-api-client</artifactId>
+      <version>1.34.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client -->
+    <dependency>
+      <groupId>com.google.oauth-client</groupId>
+      <artifactId>google-oauth-client</artifactId>
+      <version>1.34.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-jetty -->
+    <dependency>
+      <groupId>com.google.oauth-client</groupId>
+      <artifactId>google-oauth-client-jetty</artifactId>
+      <version>1.34.0</version>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-calendar -->
+    <dependency>
+      <groupId>com.google.apis</groupId>
+      <artifactId>google-api-services-calendar</artifactId>
+      <version>v3-rev20220520-1.32.1</version>
     </dependency>
 
   </dependencies>
