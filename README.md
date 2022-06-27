@@ -2,6 +2,8 @@
 
 ![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Foundation%20Task&fontSize=100)
 
+---
+
 ## selenium
 ### NaverNewsCrawling
     - selenium 을 이용하여 크롬 브라우저에서 네이버 뉴스 20개를 크롤링
@@ -47,12 +49,13 @@
 </div>
 
 ### test.java.appium.GoogleNewsTest
+
+<div align=left>
+
     - appium 을 이용하여 크롬 앱에서 뉴스 제목 10개를 크롤링
     - TestNG 를 사용하여, @BeforeMethod @Test @AfterMethod 로 구성하여 시나리오를 작성
     - 실행 순서
     - @BeforeMethod  ->  @Test  ->  @AfterMethod
-
-<div align=left>
 
 - @BeforeMethod
   - BaseSetting 을 초기화하여 appium 서버와 Android device 를 setup 함
