@@ -32,7 +32,7 @@ public class CalendarQuickstart {
     /** Global instance of the JSON factory. */
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
     /** Directory to store authorization tokens for this application. */
-    private static final String TOKENS_DIRECTORY_PATH = "AIzaSyBIJB2TXGG4QNpDq_OR4olqWs5Gp5OPR8g";
+    private static final String TOKENS_DIRECTORY_PATH = "tokens";
 
     /**
      * Global instance of the scopes required by this quickstart.
