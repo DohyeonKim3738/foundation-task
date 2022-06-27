@@ -5,7 +5,6 @@ import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInsta
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
-import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
@@ -15,9 +14,7 @@ import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.calendar.Calendar;
 import com.google.api.services.calendar.CalendarScopes;
 import com.google.api.services.calendar.model.Event;
-import com.google.api.services.calendar.model.EventAttendee;
 import com.google.api.services.calendar.model.EventDateTime;
-import com.google.api.services.calendar.model.EventReminder;
 import com.google.api.services.calendar.model.Events;
 
 import java.io.FileNotFoundException;
@@ -25,7 +22,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.security.GeneralSecurityException;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -36,7 +32,7 @@ public class CalendarQuickstart {
     /** Global instance of the JSON factory. */
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
     /** Directory to store authorization tokens for this application. */
-    private static final String TOKENS_DIRECTORY_PATH = "tokens";
+    private static final String TOKENS_DIRECTORY_PATH = "AIzaSyBIJB2TXGG4QNpDq_OR4olqWs5Gp5OPR8g";
 
     /**
      * Global instance of the scopes required by this quickstart.
@@ -80,37 +76,45 @@ public class CalendarQuickstart {
 
         // Insert Events
         /** 제헌철 **/
-        insertEventSetting(service,
-            "제헌절",
-            "제헌절 입니다.",
-            "2022-07-17T09:00:00.000+09:00",
-            "2022-07-17T18:00:00.000+09:00");
+        if (checkEvent(service, "제헌절", "2022-07-17T09:00:00.000+09:00")) {
+            insertEvent(service,
+                "제헌절",
+                "제헌절 입니다.",
+                "2022-07-17T09:00:00.000+09:00",
+                "2022-07-17T18:00:00.000+09:00");
+        }
 
         /** 광복절 **/
-        insertEventSetting(service,
-            "광복절",
-            "광복절 입니다.",
-            "2022-07-17T09:00:00.000+09:00",
-            "2022-07-17T18:00:00.000+09:00");
+        if (checkEvent(service, "광복절", "2022-08-15T09:00:00.000+09:00")) {
+            insertEvent(service,
+                "광복절",
+                "광복절 입니다.",
+                "2022-08-15T09:00:00.000+09:00",
+                "2022-08-15T18:00:00.000+09:00");
+        }
 
-        /** 추선 **/
-        insertEventSetting(service,
-            "추선",
-            "추선 연휴 입니다.",
-            "2022-09-09T09:00:00.000+09:00",
-            "2022-09-11T18:00:00.000+09:00");
+        /** 추석 **/
+        if (checkEvent(service, "추석", "2022-09-09T09:00:00.000+09:00")) {
+            insertEvent(service,
+                "추석",
+                "추석 연휴 입니다.",
+                "2022-09-09T09:00:00.000+09:00",
+                "2022-09-11T18:00:00.000+09:00");
+        }
 
         /** 빼빼로 데이 **/
-        insertEventSetting(service,
-            "빼빼로데이",
-            "빼빼로데이~!!!",
-            "2022-11-11T11:11:11.111+09:00",
-            "2022-11-11T23:11:11.111+09:00");
+        if (checkEvent(service, "빼빼로데이", "2022-11-11T11:11:11.111+09:00")) {
+            insertEvent(service,
+                "빼빼로데이",
+                "빼빼로데이~!!!",
+                "2022-11-11T11:11:11.111+09:00",
+                "2022-11-11T23:11:11.111+09:00");
+        }
 
         // List the next 10 events from the primary calendar.
         DateTime now = new DateTime(System.currentTimeMillis());
         Events events = service.events().list("primary")
-            .setMaxResults(10)
+            .setMaxResults(20)
             .setTimeMin(now)
             .setOrderBy("startTime")
             .setSingleEvents(true)
@@ -136,7 +140,32 @@ public class CalendarQuickstart {
 
     }
 
-    public static void insertEventSetting(Calendar service, String summary, String description, String startDate, String endDate) throws IOException {
+    private static boolean checkEvent(Calendar service, String summary, String startDate) throws IOException {
+        DateTime now = new DateTime(System.currentTimeMillis());
+        Events events = service.events().list("primary")
+            .setMaxResults(20)
+            .setTimeMin(now)
+            .setOrderBy("startTime")
+            .setSingleEvents(true)
+            .execute();
+        List<Event> items = events.getItems();
+        if (items.isEmpty()) {
+            System.out.println("No upcoming events found.");
+            return false;
+        } else {
+            for (Event event : items) {
+                DateTime start = event.getStart().getDateTime();
+                if (event.getSummary().equals(summary) && start.toString().contains(startDate)) {
+                    System.out.printf("Already created event. : %s\n", event.getSummary() + ", " + start);
+                    return false;
+                }
+            }
+        }
+        System.out.println("Check complete.");
+        return true;
+    }
+
+    private static void insertEvent(Calendar service, String summary, String description, String startDate, String endDate) throws IOException {
         Event event = new Event()
             .setSummary(summary)
             .setDescription(description);
@@ -152,7 +181,13 @@ public class CalendarQuickstart {
         event.setEnd(end);
 
         String calendarId = "primary";
+
         event = service.events().insert(calendarId, event).execute();
         System.out.printf("Event created: %s\n", event.getHtmlLink());
+    }
+
+    private static void deleteEvent(Calendar service, String event) throws IOException {
+        String calendarId = "primary";
+        System.out.printf("Event deleted: %s\n", service.events().delete(calendarId, event).execute());
     }
 }
