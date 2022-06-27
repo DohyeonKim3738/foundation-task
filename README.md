@@ -1,6 +1,6 @@
 <div align=center>
 
-# Foundation Task
+![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Foundation%20Task&fontSize=100)
 
 ## selenium
 ### NaverNewsCrawling
@@ -10,6 +10,8 @@
 
 <img src="https://img.shields.io/badge/NaverNewsCrawling.gif-000000?style=flat&logo=selenium&logoColor=43B02A"/>
 <img width="100%" src="https://user-images.githubusercontent.com/73505910/175875374-eaf0fd62-74dc-48b3-bf0a-0631894d9521.gif"/>
+
+---
 
 ## appium
 ### main.java.appium.utils.DesiredCapabilitiesUtil
@@ -69,6 +71,8 @@
 <img width="100%" src="https://user-images.githubusercontent.com/73505910/175882179-f2344cfa-c694-4d33-bab7-f1ba584f50a6.gif"/>
 
 <a href="https://drive.google.com/file/d/1gQIadWbZqOjlWl_lNU1ray8-nVuuZo2P/view?usp=sharing"><img src="https://img.shields.io/badge/GoogleDrive-FullVideoURL(Click)-blue?style=flat-square&logo=GoogleDrive&logoColor=4285F4"/></a>
+
+---
 
 ## google
 구글 캘린더 API 다루기
