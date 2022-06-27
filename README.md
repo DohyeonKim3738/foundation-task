@@ -5,12 +5,15 @@
     - selenium 을 이용하여 크롬 브라우저에서 네이버 뉴스 20개를 크롤링
     - 뉴스는 최신순으로 크롤링하며, 뉴스의 제목과 링크를 CSV 파일로 저장
     - CSV 파일명을 크롤링한 날짜와 시간으로 저장
+NaverNewsCrawling.gif
+<img width="100%" src="https://user-images.githubusercontent.com/73505910/175875374-eaf0fd62-74dc-48b3-bf0a-0631894d9521.gif"/>
 
 ## appium
 ### main.java.appium.utils.DesiredCapabilitiesUtil
     - appium 서버와 연결 시 원하는 기능을 셋팅
     - appium inspector 에서 동일하게 확일할 수 있음
-![AppiumInspector](https://user-images.githubusercontent.com/73505910/175256327-27944b1e-cea2-4e95-bd50-a6078ecf53f5.png)
+AppiumInspector.png
+<img width="100%" src="https://user-images.githubusercontent.com/73505910/175256327-27944b1e-cea2-4e95-bd50-a6078ecf53f5.png"/>
 
 ### main.java.appium.test.BaseSetting
     - DesiredCapabilities.java 에 셋팅된 기능으로 appium 서버와 Android device 를 연결
@@ -44,7 +47,12 @@
   - keyWord 를 입력하여 검색하고, 뉴스 탭으로 이동
   - keyWord 를 포함하고 있는 뉴스 제목을 크롤링하여 저장 및 출력
 - @AfterMethod
-  - driver 종료
+  - driver 종료 
+
+GoogleNewsSearch_1.gif  
+<img width="100%" src="https://user-images.githubusercontent.com/73505910/175881033-7fcc19f9-ea7b-497e-995b-941f1bb0e62a.gif"/>
+GoogleNewsSearch_2.gif
+<img width="100%" src="https://user-images.githubusercontent.com/73505910/175882179-f2344cfa-c694-4d33-bab7-f1ba584f50a6.gif"/>
 
 ## google
 - 구글 캘린더 API 다루기
@@ -60,3 +68,6 @@
 
 ### main.java.google.calendar.CalendarQuickstart
     - https://developers.google.com/calendar/api/quickstart/java 참조
+
+[//]: # (CalendarQuickstart.gif)
+[//]: # (<img width="100%" src=""/>)
