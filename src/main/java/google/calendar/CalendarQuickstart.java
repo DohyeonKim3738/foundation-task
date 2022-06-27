@@ -103,12 +103,12 @@ public class CalendarQuickstart {
         }
 
         /** 빼빼로 데이 **/
-        if (checkEvent(service, "빼빼로데이", "2022-11-11T11:11:11.111+09:00")) {
+        if (checkEvent(service, "빼빼로데이", "2022-11-11T11:11:11.000+09:00")) {
             insertEvent(service,
                 "빼빼로데이",
                 "빼빼로데이~!!!",
-                "2022-11-11T11:11:11.111+09:00",
-                "2022-11-11T23:11:11.111+09:00");
+                "2022-11-11T11:11:11.000+09:00",
+                "2022-11-11T23:11:11.000+09:00");
         }
 
         // List the next 10 events from the primary calendar.
@@ -143,7 +143,6 @@ public class CalendarQuickstart {
     private static boolean checkEvent(Calendar service, String summary, String startDate) throws IOException {
         DateTime now = new DateTime(System.currentTimeMillis());
         Events events = service.events().list("primary")
-            .setMaxResults(20)
             .setTimeMin(now)
             .setOrderBy("startTime")
             .setSingleEvents(true)

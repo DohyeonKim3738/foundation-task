@@ -92,6 +92,7 @@ public class NaverNewsCrawling {
 
         /** 크롬 종료 **/
         webDriver.close();
+        webDriver.quit();
     }
 
     /** 뉴스의 제목과 링크 데이터를 저장 **/
