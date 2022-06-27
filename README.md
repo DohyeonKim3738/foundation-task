@@ -53,6 +53,8 @@ GoogleNewsSearch_1.gif
 <img width="100%" src="https://user-images.githubusercontent.com/73505910/175881033-7fcc19f9-ea7b-497e-995b-941f1bb0e62a.gif"/>
 GoogleNewsSearch_2.gif
 <img width="100%" src="https://user-images.githubusercontent.com/73505910/175882179-f2344cfa-c694-4d33-bab7-f1ba584f50a6.gif"/>
+Full Video
+- https://drive.google.com/file/d/1gQIadWbZqOjlWl_lNU1ray8-nVuuZo2P/view?usp=sharing
 
 ## google
 - 구글 캘린더 API 다루기
