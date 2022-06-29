@@ -26,7 +26,7 @@
 ### main.java.appium.test.BaseSetting
     - DesiredCapabilities.java 에 셋팅된 기능으로 appium 서버와 Android device 를 연결
 
-### main.java.appium.test.GoogleNewsSearch
+### main.java.appium.test.GoogleNews
     - 모바일 앱 동작 시 필요한 기능을 Custom 함
 
 <div align=left>
@@ -94,7 +94,7 @@
 
 </div>
 
-### main.java.google.calendar.CalendarQuickstart
+### main.java.google.calendar.api.CalendarQuickstart
     - https://developers.google.com/calendar/api/quickstart/java 참조
 
 [//]: # (CalendarQuickstart.gif)
