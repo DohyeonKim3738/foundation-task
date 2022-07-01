@@ -1,6 +1,6 @@
 package google.calendar.app.test;
 
-import google.calendar.app.manager.UiAutomator;
+import google.calendar.app.manager.PageSourceParser;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.WaitOptions;
@@ -20,13 +20,13 @@ public class GoogleCalendar {
 
     public AndroidDriver driver;
     public WebDriverWait wait;
-    public UiAutomator uiAutomator;
+    public PageSourceParser uiAutomator;
     public int checkCount = 0;
 
     public GoogleCalendar(AndroidDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
-        uiAutomator = new UiAutomator();
+        uiAutomator = new PageSourceParser();
     }
 
     public boolean cFindText(String data) {
@@ -53,8 +53,11 @@ public class GoogleCalendar {
     }
 
     public WebElement cFindXpath(String xpath) {
-        WebElement element = driver.findElement(By.xpath(xpath));
-        return element;
+        for (int i = 0; i < 3; i++) {
+            WebElement element = driver.findElement(By.xpath(xpath));
+            return element;
+        }
+        return null;
     }
 
     public WebElement cFindElement(String data) {
@@ -94,9 +97,8 @@ public class GoogleCalendar {
     }
 
     public void cUiAutomatorTap(String data) {
-        JSONArray jsonArray = uiAutomator.screenDump(driver.getPageSource());
+        JSONArray jsonArray = uiAutomator.sourceParser(driver.getPageSource());
         PointOption pointOption;
-        System.out.println("jsonArray.length : " + jsonArray.length());
         for (int i = jsonArray.length() -1; i >= 0; i--) {
             if (checkJsonException(jsonArray, i, "text", data) || checkJsonException(jsonArray, i, "content-desc", data))  {
                 String[] xyValue = jsonArray.getJSONObject(i).getString("bounds").split("]");

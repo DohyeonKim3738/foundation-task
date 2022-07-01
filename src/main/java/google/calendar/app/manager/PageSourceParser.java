@@ -6,11 +6,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
 
-public class UiAutomator {
+public class PageSourceParser {
 
     public JSONArray componentJSONArray;
 
-    public JSONArray screenDump(String pageSource) {
+    public JSONArray sourceParser(String pageSource) {
         componentJSONArray = new JSONArray();
         try {
             JSONObject json = XML.toJSONObject(pageSource).getJSONObject("hierarchy");
