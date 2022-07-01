@@ -1,6 +1,6 @@
 package google.calendar.app.test;
 
-import appium.utils.DesiredCapabilitiesUtil;
+import google.calendar.app.utils.DesiredCapabilitiesUtil;
 import io.appium.java_client.android.AndroidDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
