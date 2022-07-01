@@ -20,18 +20,14 @@ public class GoogleNewsTest {
     }
 
     @Test
-    public void test() {
+    public void test() throws InterruptedException {
         googleNews = new GoogleNews(baseSetting.driver, baseSetting.wait);
         googleNews.cSelectElement("동의하고 계속");
         googleNews.cSelectElement("취소");
         googleNews.cSendKeyElement("웹 주소 검색 또는 입력", "누리호");
         baseSetting.driver.pressKey(new KeyEvent(AndroidKey.ENTER));
         googleNews.cSelectElement("뉴스");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        Thread.sleep(5000);
         googleNews.newsCrawling("누리호");
         googleNews.swipeScreen(Direction.UP);
         googleNews.newsCrawling("누리호");
