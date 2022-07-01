@@ -1,12 +1,26 @@
 package google.calendar.app.utils;
 
-import io.appium.java_client.remote.AndroidMobileCapabilityType;
-import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class DesiredCapabilitiesUtil {
 
     public DesiredCapabilities getDesiredCapabilities() {
+        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+        desiredCapabilities.setCapability("platformName", "Android");
+        desiredCapabilities.setCapability("appium:platformVersion", "12");
+        desiredCapabilities.setCapability("appium:deviceName", "Android Automation Test");
+        desiredCapabilities.setCapability("appium:appPackage", "com.google.android.calendar");
+        desiredCapabilities.setCapability("appium:appActivity", "com.android.calendar.AllInOneActivity");
+        desiredCapabilities.setCapability("appium:intentAction", "android.intent.action.Main");
+        desiredCapabilities.setCapability("appium:noReset", false);
+        desiredCapabilities.setCapability("appium:fullReset", false);
+        desiredCapabilities.setCapability("appium:enforceAppInstall", false);
+        desiredCapabilities.setCapability("appium:appWaitActivity", "*");
+
+        /**
+         *
+         * Support for Legacy Capabilities is deprecated
+         *
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12");
@@ -19,6 +33,7 @@ public class DesiredCapabilitiesUtil {
         desiredCapabilities.setCapability(MobileCapabilityType.FULL_RESET, "false");
         desiredCapabilities.setCapability(AndroidMobileCapabilityType.ENFORCE_APP_INSTALL, "false");
         desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_WAIT_ACTIVITY, "*");
+        **/
         return desiredCapabilities;
     }
 
