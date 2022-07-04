@@ -1,5 +1,6 @@
 package google.calendar.app;
 
+import google.calendar.app.constants.Constants;
 import google.calendar.app.test.BaseSetting;
 import google.calendar.app.test.GoogleCalendar;
 import google.calendar.app.test.GoogleCalendar.Direction;
@@ -11,6 +12,7 @@ public class GoogleCalendarTest {
 
     public BaseSetting baseSetting;
     public GoogleCalendar googleCalendar;
+    public Constants constants;
 
     @BeforeMethod
     public void setup() {
@@ -32,7 +34,7 @@ public class GoogleCalendarTest {
             googleCalendar.swipeScreen(Direction.TOP_LEFT);
             Thread.sleep(500);
         }
-        googleCalendar.cFindXpath("//android.view.View[@content-desc=\"월요일 26 12월 2022, 12월4\"]").click();
+        googleCalendar.cFindXpath(constants.event26dayXpath).click();
         Thread.sleep(500);
         googleCalendar.tapScreen(Direction.ADD_CALENDAR);
         Thread.sleep(500);
@@ -44,7 +46,7 @@ public class GoogleCalendarTest {
         Thread.sleep(2500);
         googleCalendar.cUiAutomatorTap("크리스마스 다음날");
         Thread.sleep(500);
-        googleCalendar.cFindXpath("//android.widget.ImageView[@content-desc=\"옵션 더보기\"]").click();
+        googleCalendar.cFindXpath(constants.eventInOptionXpath).click();
         Thread.sleep(500);
         googleCalendar.cSelectElement("삭제");
         Thread.sleep(500);
