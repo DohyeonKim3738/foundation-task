@@ -12,6 +12,7 @@
     - CSV 파일명을 크롤링한 날짜와 시간으로 저장
 
 <img src="https://img.shields.io/badge/NaverNewsCrawling.gif-000000?style=flat&logo=selenium&logoColor=43B02A"/>
+-
 <img width="100%" src="https://user-images.githubusercontent.com/73505910/175875374-eaf0fd62-74dc-48b3-bf0a-0631894d9521.gif"/>
 
 ---
@@ -23,6 +24,7 @@
     - appium inspector 에서 동일하게 확일할 수 있음
 
 <img src="https://img.shields.io/badge/AppiumInspector.png-000000?style=flat"/>
+-
 <img width="100%" src="https://user-images.githubusercontent.com/73505910/175256327-27944b1e-cea2-4e95-bd50-a6078ecf53f5.png"/>
 
 ### main.java.appium.test.BaseSetting.java
@@ -71,8 +73,11 @@
 </div>
 
 <img src="https://img.shields.io/badge/GoogleNewsTest_1.gif-000000?style=flat&logo=google&logoColor=4285F4"/>
+-
 <img width="100%" src="https://user-images.githubusercontent.com/73505910/175881033-7fcc19f9-ea7b-497e-995b-941f1bb0e62a.gif"/>
+
 <img src="https://img.shields.io/badge/GoogleNewsTest_2.gif-000000?style=flat&logo=google&logoColor=4285F4"/>
+-
 <img width="100%" src="https://user-images.githubusercontent.com/73505910/175882179-f2344cfa-c694-4d33-bab7-f1ba584f50a6.gif"/>
 
 <a href="https://drive.google.com/file/d/1gQIadWbZqOjlWl_lNU1ray8-nVuuZo2P/view?usp=sharing"><img src="https://img.shields.io/badge/GoogleDrive-GoogleNewsTest_Full_Video_URL(Click)-blue?style=flat-square&logo=GoogleDrive&logoColor=4285F4"/></a>
@@ -165,8 +170,20 @@
 
 <img src="https://img.shields.io/badge/GoogleCalendarTest_1.gif-000000?style=flat&logo=google&logoColor=4285F4"/>
 -
+<img width="100%" src="https://user-images.githubusercontent.com/73505910/177082166-26b4ed17-8703-48a4-a281-87ebe5c77664.gif"/>
+
 <img src="https://img.shields.io/badge/GoogleCalendarTest_2.gif-000000?style=flat&logo=google&logoColor=4285F4"/>
 -
-<a href="https://drive.google.com/file/d/1gQIadWbZqOjlWl_lNU1ray8-nVuuZo2P/view?usp=sharing"><img src="https://img.shields.io/badge/GoogleDrive-GoogleCalendarTest_Full_Video_URL_(Click)-blue?style=flat-square&logo=GoogleDrive&logoColor=4285F4"/></a>
+<img width="100%" src="https://user-images.githubusercontent.com/73505910/177082425-ba202f4c-5226-4986-8f8f-af2e0a28df44.gif"/>
+
+<img src="https://img.shields.io/badge/GoogleCalendarTest_3.gif-000000?style=flat&logo=google&logoColor=4285F4"/>
+-
+<img width="100%" src="https://user-images.githubusercontent.com/73505910/177082732-ddc29abf-7753-4cfd-a57a-b15dce8e1e94.gif"/>
+
+<img src="https://img.shields.io/badge/GoogleCalendarTest_4.gif-000000?style=flat&logo=google&logoColor=4285F4"/>
+-
+<img width="100%" src="https://user-images.githubusercontent.com/73505910/177082546-ab31714d-7049-416f-a572-f1446da75587.gif"/>
+
+<a href="https://drive.google.com/file/d/1TmDu9wOO9s1TGMiTGH_iW_cfk1_LcqJR/view?usp=sharing"><img src="https://img.shields.io/badge/GoogleDrive-GoogleCalendarTest_Full_Video_URL_(Click)-blue?style=flat-square&logo=GoogleDrive&logoColor=4285F4"/></a>
 
 </div>
