@@ -5,8 +5,11 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.openqa.selenium.By;
@@ -238,6 +241,42 @@ public class GoogleCalendar {
         } catch (InterruptedException e) {
             // ignore
         }
+    }
+
+    public String getCurrentMonth() {
+        Date today = new Date();
+        Locale currentLocale = new Locale("KOREAN", "KOREA");
+        String pattern = "MM";
+        SimpleDateFormat formatter = new SimpleDateFormat(pattern,
+            currentLocale);
+
+        switch (formatter.format(today)) {
+            case "01":
+                return "1월";
+            case "02":
+                return "2월";
+            case "03":
+                return "3월";
+            case "04":
+                return "4월";
+            case "05":
+                return "5월";
+            case "06":
+                return "6월";
+            case "07":
+                return "7월";
+            case "08":
+                return "8월";
+            case "09":
+                return "9월";
+            case "10":
+                return "10월";
+            case "11":
+                return "11월";
+            case "12":
+                return "12월";
+        }
+        return null;
     }
 
     public enum Direction {
