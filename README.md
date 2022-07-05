@@ -103,7 +103,11 @@
 </div>
 
 ### main.java.google.calendar.api.CalendarQuickstart.java
-    - https://developers.google.com/calendar/api/quickstart/java 참조
+    - 제헌절, 광복절, 추석, 빼빼로데이를 insertEvent() 를 통해 개인 일정에 추가
+    - 이미 생성되어있는지 checkEvent() 를 통해 checking 후 추가
+    - 현시점으로 부터 최대 20개까지 개인 일정을 출력
+    - deleteEvent() 를 통해 개인 일정 삭제
+    * https://developers.google.com/calendar/api/quickstart/java 참조
 
 ---
 
