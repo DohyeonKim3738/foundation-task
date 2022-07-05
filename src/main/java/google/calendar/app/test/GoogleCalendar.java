@@ -23,13 +23,13 @@ public class GoogleCalendar {
 
     public AndroidDriver driver;
     public WebDriverWait wait;
-    public PageSourceParser uiAutomator;
+    public PageSourceParser pageSourceParser;
     public int checkCount = 0;
 
     public GoogleCalendar(AndroidDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
-        uiAutomator = new PageSourceParser();
+        pageSourceParser = new PageSourceParser();
     }
 
     public boolean cFindText(String data) {
@@ -100,7 +100,7 @@ public class GoogleCalendar {
     }
 
     public void cUiAutomatorTap(String data) {
-        JSONArray jsonArray = uiAutomator.sourceParser(driver.getPageSource());
+        JSONArray jsonArray = pageSourceParser.sourceParser(driver.getPageSource());
         PointOption pointOption;
         for (int i = jsonArray.length() -1; i >= 0; i--) {
             if (checkJsonException(jsonArray, i, "text", data) || checkJsonException(jsonArray, i, "content-desc", data))  {
