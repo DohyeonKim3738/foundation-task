@@ -32,25 +32,25 @@ public class GoogleCalendar {
         pageSourceParser = new PageSourceParser();
     }
 
-    public boolean cFindText(String data) {
+    public boolean cFindText(String udid, String data) {
         try {
             List<WebElement> elementXpath = driver.findElements(By.xpath("//*[@class]"));
             for (int i = 0; i < elementXpath.size(); i++) {
                 WebElement element = elementXpath.get(i);
                 if (element.getText().equals(data)) {
-                    System.out.printf("found data {%s} \n", data);
+                    System.out.printf("[" + udid + "] found data {%s} \n", data);
                     return true;
                 }
             }
         } catch (StaleElementReferenceException e) {
-            return cFindText(data);
+            return cFindText(udid, data);
         }
         if (checkCount == 3) {
             checkCount = 0;
             return false;
         } else {
             checkCount++;
-            cFindText(data);
+            cFindText(udid, data);
         }
         return false;
     }
@@ -63,13 +63,13 @@ public class GoogleCalendar {
         return null;
     }
 
-    public WebElement cFindElement(String data) {
+    public WebElement cFindElement(String udid, String data) {
         try {
             List<WebElement> elementXpath = driver.findElements(By.xpath("//*[@class]"));
             for (int i = 0; i < elementXpath.size(); i++) {
                 WebElement element = elementXpath.get(i);
                 if (element.getText().equals(data)) {
-                    System.out.printf("found data {%s} \n", data);
+                    System.out.printf("[" + udid + "] found data {%s} \n", data);
                     return element;
                 }
             }
@@ -79,27 +79,29 @@ public class GoogleCalendar {
         return null;
     }
 
-    public void cSelectElement(String data) {
-        WebElement webElement = cFindElement(data);
+    public void cSelectElement(String udid, String data) {
+        WebElement webElement = cFindElement(udid, data);
         try {
             wait.until(ExpectedConditions.elementToBeClickable(webElement));
+            System.out.printf("[" + udid + "] click data {%s} \n", data);
             webElement.click();
         } catch (NullPointerException e) {
-            cSelectElement(data);
+            cSelectElement(udid, data);
         }
     }
 
-    public void cSendKeyElement(String data, String sendKey) {
-        WebElement webElement = cFindElement(data);
+    public void cSendKeyElement(String udid, String data, String sendKey) {
+        WebElement webElement = cFindElement(udid, data);
         try {
             wait.until(ExpectedConditions.elementToBeClickable(webElement));
+            System.out.printf("[" + udid + "] sendKey data {%s, %s} \n", data, sendKey);
             webElement.sendKeys(sendKey);
         } catch (NullPointerException e) {
-            cSendKeyElement(data, sendKey);
+            cSendKeyElement(udid, data, sendKey);
         }
     }
 
-    public void cUiAutomatorTap(String data) {
+    public void cPageSourceTap(String udid, String data) {
         JSONArray jsonArray = pageSourceParser.sourceParser(driver.getPageSource());
         PointOption pointOption;
         for (int i = jsonArray.length() -1; i >= 0; i--) {
@@ -114,11 +116,12 @@ public class GoogleCalendar {
                 int pointSecond = (Integer.parseInt(firstPoint[1]) + Integer.parseInt(secondPoint[1])) / 2;
                 pointOption = PointOption.point(pointFirst, pointSecond);
                 try {
+                    System.out.printf("[" + udid + "] click data {%s} \n", data);
                     new TouchAction(driver)
                         .tap(pointOption)
                         .perform();
                 } catch (Exception e) {
-                    System.err.println("cUiAutomatorTap(): TouchAction FAILED\n" + e.getMessage());
+                    System.err.println("[" + udid + "] cUiAutomatorTap(): TouchAction FAILED\n" + e.getMessage());
                     return;
                 }
             }
@@ -139,7 +142,7 @@ public class GoogleCalendar {
         return false;
     }
 
-    public void tapScreen(Direction dir) {
+    public void tapScreen(String udid, Direction dir) {
 
         final int ANIMATION_TIME = 300; // ms
 
@@ -151,15 +154,16 @@ public class GoogleCalendar {
                 pointOption = PointOption.point(dims.width - 120,dims.height - 150);
                 break;
             default:
-                throw new IllegalArgumentException("tapScreen(): dir: '" + dir + "' NOT supported");
+                throw new IllegalArgumentException("[" + udid + "] tapScreen(): dir: '" + dir + "' NOT supported");
         }
 
         try {
+            System.out.printf("[" + udid + "] tap {%s} \n", dir);
             new TouchAction(driver)
                 .tap(pointOption)
                 .perform();
         } catch (Exception e) {
-            System.err.println("tapScreen(): TouchAction FAILED\n" + e.getMessage());
+            System.err.println("[" + udid + "] tapScreen(): TouchAction FAILED\n" + e.getMessage());
             return;
         }
 
@@ -171,7 +175,7 @@ public class GoogleCalendar {
         }
     }
 
-    public void swipeScreen(Direction dir) {
+    public void swipeScreen(String udid, Direction dir) {
         // Animation default time:
         //  - Android: 300 ms
         //  - iOS: 200 ms
@@ -219,11 +223,12 @@ public class GoogleCalendar {
                 pointOptionEnd = PointOption.point(dims.width - edgeBorder, (dims.height / 2 + dims.height / 4));
                 break;
             default:
-                throw new IllegalArgumentException("swipeScreen(): dir: '" + dir + "' NOT supported");
+                throw new IllegalArgumentException("[" + udid + "] swipeScreen(): dir: '" + dir + "' NOT supported");
         }
 
         // execute swipe using TouchAction
         try {
+            System.out.printf("[" + udid + "] swipe {%s} \n", dir);
             new TouchAction(driver)
                 .press(pointOptionStart)
                 // a bit more reliable when we add small wait
@@ -231,7 +236,7 @@ public class GoogleCalendar {
                 .moveTo(pointOptionEnd)
                 .release().perform();
         } catch (Exception e) {
-            System.err.println("swipeScreen(): TouchAction FAILED\n" + e.getMessage());
+            System.err.println("[" + udid + "] swipeScreen(): TouchAction FAILED\n" + e.getMessage());
             return;
         }
 

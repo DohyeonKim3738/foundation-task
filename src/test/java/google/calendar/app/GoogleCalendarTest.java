@@ -6,6 +6,8 @@ import google.calendar.app.test.GoogleCalendar;
 import google.calendar.app.test.GoogleCalendar.Direction;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class GoogleCalendarTest {
@@ -15,8 +17,9 @@ public class GoogleCalendarTest {
     public Constants constants;
 
     @BeforeMethod
-    public void setup() {
-        baseSetting = new BaseSetting();
+    @Parameters({ "udid", "platformVersion" })
+    public void setup(@Optional String udid, @Optional String platformVersion) {
+        baseSetting = new BaseSetting(udid, platformVersion);
     }
 
 
@@ -32,42 +35,68 @@ public class GoogleCalendarTest {
      * **/
     @Test
     public void test() throws InterruptedException {
-        googleCalendar = new GoogleCalendar(baseSetting.driver, baseSetting.wait);
+        googleCalendar = new GoogleCalendar(baseSetting.threadLocalDriver.getTLDriver(), baseSetting.wait);
         Thread.sleep(2000);
-        if (googleCalendar.cFindText("하루를 더 효율적으로 활용해 보세요.")) {
-            googleCalendar.swipeScreen(Direction.LEFT);
+        if (googleCalendar.cFindText(baseSetting.desiredCapabilitiesUtil.getUdid(), "하루를 더 효율적으로 활용해 보세요.")) {
+            while (!googleCalendar.cFindText(baseSetting.desiredCapabilitiesUtil.getUdid(), "확인")) {
+                googleCalendar.swipeScreen(baseSetting.desiredCapabilitiesUtil.getUdid(), Direction.TOP_LEFT);
+                Thread.sleep(500);
+            }
         }
-        googleCalendar.cSelectElement("확인");
+        googleCalendar.cSelectElement(baseSetting.desiredCapabilitiesUtil.getUdid(), "확인");
         Thread.sleep(1000);
-        googleCalendar.cSelectElement(googleCalendar.getCurrentMonth());
+        googleCalendar.cSelectElement(baseSetting.desiredCapabilitiesUtil.getUdid(), googleCalendar.getCurrentMonth());
         Thread.sleep(500);
-        while (!googleCalendar.cFindText("12월")) {
-            googleCalendar.swipeScreen(Direction.TOP_LEFT);
+        while (!googleCalendar.cFindText(baseSetting.desiredCapabilitiesUtil.getUdid(), "12월")) {
+            googleCalendar.swipeScreen(baseSetting.desiredCapabilitiesUtil.getUdid(), Direction.TOP_LEFT);
             Thread.sleep(500);
         }
-        googleCalendar.cFindXpath(constants.event26dayXpath).click();
-        Thread.sleep(500);
-        googleCalendar.tapScreen(Direction.ADD_CALENDAR);
-        Thread.sleep(500);
-        googleCalendar.tapScreen(Direction.ADD_CALENDAR);
-        Thread.sleep(500);
-        googleCalendar.cSendKeyElement("제목 추가", "크리스마스 다음날");
-        Thread.sleep(500);
-        googleCalendar.cSelectElement("저장");
-        Thread.sleep(2500);
-        googleCalendar.cUiAutomatorTap("크리스마스 다음날");
-        Thread.sleep(500);
-        googleCalendar.cFindXpath(constants.eventInOptionXpath).click();
-        Thread.sleep(500);
-        googleCalendar.cSelectElement("삭제");
-        Thread.sleep(500);
-        googleCalendar.cSelectElement("삭제");
-        Thread.sleep(5000);
+        if (baseSetting.desiredCapabilitiesUtil.getPlatformVersion() < 11) {
+            googleCalendar.cFindXpath(constants.event26dayXpath_10).click();
+            Thread.sleep(500);
+            googleCalendar.tapScreen(baseSetting.desiredCapabilitiesUtil.getUdid(), Direction.ADD_CALENDAR);
+            Thread.sleep(500);
+            googleCalendar.tapScreen(baseSetting.desiredCapabilitiesUtil.getUdid(), Direction.ADD_CALENDAR);
+            Thread.sleep(500);
+            googleCalendar.cSendKeyElement(baseSetting.desiredCapabilitiesUtil.getUdid(), "제목 입력", "크리스마스 다음날");
+            Thread.sleep(500);
+            googleCalendar.cSelectElement(baseSetting.desiredCapabilitiesUtil.getUdid(), "저장");
+            Thread.sleep(2500);
+            googleCalendar.cPageSourceTap(baseSetting.desiredCapabilitiesUtil.getUdid(), "크리스마스 다음날");
+            Thread.sleep(500);
+            googleCalendar.cPageSourceTap(baseSetting.desiredCapabilitiesUtil.getUdid(), "크리스마스 다음날");
+            Thread.sleep(500);
+            googleCalendar.cFindXpath(constants.eventInOptionXpath).click();
+            Thread.sleep(500);
+            googleCalendar.cSelectElement(baseSetting.desiredCapabilitiesUtil.getUdid(), "삭제");
+            Thread.sleep(500);
+            googleCalendar.cSelectElement(baseSetting.desiredCapabilitiesUtil.getUdid(), "삭제");
+            Thread.sleep(5000);
+        } else {
+            googleCalendar.cFindXpath(constants.event26dayXpath).click();
+            Thread.sleep(500);
+            googleCalendar.tapScreen(baseSetting.desiredCapabilitiesUtil.getUdid(), Direction.ADD_CALENDAR);
+            Thread.sleep(500);
+            googleCalendar.tapScreen(baseSetting.desiredCapabilitiesUtil.getUdid(), Direction.ADD_CALENDAR);
+            Thread.sleep(500);
+            googleCalendar.cSendKeyElement(baseSetting.desiredCapabilitiesUtil.getUdid(), "제목 추가", "크리스마스 다음날");
+            Thread.sleep(500);
+            googleCalendar.cSelectElement(baseSetting.desiredCapabilitiesUtil.getUdid(), "저장");
+            Thread.sleep(2500);
+            googleCalendar.cPageSourceTap(baseSetting.desiredCapabilitiesUtil.getUdid(), "크리스마스 다음날");
+            Thread.sleep(500);
+            googleCalendar.cFindXpath(constants.eventInOptionXpath).click();
+            Thread.sleep(500);
+            googleCalendar.cSelectElement(baseSetting.desiredCapabilitiesUtil.getUdid(), "삭제");
+            Thread.sleep(500);
+            googleCalendar.cSelectElement(baseSetting.desiredCapabilitiesUtil.getUdid(), "삭제");
+            Thread.sleep(5000);
+        }
     }
 
     @AfterMethod
     public void tearDown() {
-        baseSetting.driver.quit();
+        baseSetting.threadLocalDriver.getTLDriver().quit();
     }
 
 }

@@ -1,13 +1,16 @@
 package google.calendar.app.utils;
 
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class DesiredCapabilitiesUtil {
 
-    public DesiredCapabilities getDesiredCapabilities() {
-        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+    private DesiredCapabilities desiredCapabilities;
+    public DesiredCapabilities getDesiredCapabilities(String udid, String platformVersion) {
+        desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability("platformName", "Android");
-        desiredCapabilities.setCapability("appium:platformVersion", "12");
+        desiredCapabilities.setCapability("appium:udid", udid);
+        desiredCapabilities.setCapability("appium:platformVersion", platformVersion);
         desiredCapabilities.setCapability("appium:deviceName", "Android Automation Test");
         desiredCapabilities.setCapability("appium:appPackage", "com.google.android.calendar");
         desiredCapabilities.setCapability("appium:appActivity", "com.android.calendar.AllInOneActivity");
@@ -35,6 +38,14 @@ public class DesiredCapabilitiesUtil {
         desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_WAIT_ACTIVITY, "*");
         **/
         return desiredCapabilities;
+    }
+
+    public String getUdid() {
+        return String.valueOf(desiredCapabilities.getCapability("appium:udid"));
+    }
+
+    public int getPlatformVersion() {
+        return Integer.parseInt(String.valueOf(desiredCapabilities.getCapability("appium:platformVersion")));
     }
 
 }
