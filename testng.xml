@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="GoogleCalendarTest" parallel="tests" thread-count="3">
+    <test name="GoogleCalendar_Android12">
+        <parameter name="udid" value="emulator-5554"/>
+        <parameter name="platformVersion" value="12"/>
+        <classes>
+            <class name="google.calendar.app.GoogleCalendarTest"/>
+        </classes>
+    </test>
+
+    <test name="GoogleCalendar_Android11">
+        <parameter name="udid" value="emulator-5556"/>
+        <parameter name="platformVersion" value="11"/>
+        <classes>
+            <class name="google.calendar.app.GoogleCalendarTest"/>
+        </classes>
+    </test>
+
+    <test name="GoogleCalendar_Android10">
+        <parameter name="udid" value="emulator-5558"/>
+        <parameter name="platformVersion" value="10"/>
+        <classes>
+            <class name="google.calendar.app.GoogleCalendarTest"/>
+        </classes>
+    </test>
+</suite>
