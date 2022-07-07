@@ -7,6 +7,7 @@
 <div align=center>
 
 ![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Foundation%20Task&fontSize=100)
+
 ---
 ---
 
@@ -194,5 +195,32 @@
 <img width="100%" src="https://user-images.githubusercontent.com/73505910/177082546-ab31714d-7049-416f-a572-f1446da75587.gif"/>
 
 <a href="https://drive.google.com/file/d/1TmDu9wOO9s1TGMiTGH_iW_cfk1_LcqJR/view?usp=sharing"><img src="https://img.shields.io/badge/GoogleDrive-GoogleCalendarTest_Full_Video_URL_(Click)-blue?style=flat-square&logo=GoogleDrive&logoColor=4285F4"/></a>
+
+---
+
+<img src="https://img.shields.io/badge/GoogleCalendarParallelTest_1.gif-000000?style=flat&logo=google&logoColor=4285F4"/>
+-
+<img width="100%" src="https://user-images.githubusercontent.com/73505910/177665029-253ba314-8bd5-4e30-bc99-c2f6cc45a172.gif"/>
+
+<img src="https://img.shields.io/badge/GoogleCalendarParallelTest_2.gif-000000?style=flat&logo=google&logoColor=4285F4"/>
+-
+<img width="100%" src="https://user-images.githubusercontent.com/73505910/177664670-6e0db632-61a8-4b35-b571-96d58e773b51.gif"/>
+
+<img src="https://img.shields.io/badge/GoogleCalendarParallelTest_3.gif-000000?style=flat&logo=google&logoColor=4285F4"/>
+-
+<img width="100%" src="https://user-images.githubusercontent.com/73505910/177665091-0194c423-0944-461b-99eb-88afaee26106.gif"/>
+
+<img src="https://img.shields.io/badge/GoogleCalendarParallelTest_4.gif-000000?style=flat&logo=google&logoColor=4285F4"/>
+-
+<img width="100%" src="https://user-images.githubusercontent.com/73505910/177664764-16138505-1392-49e6-9f7f-abb1823f5984.gif"/>
+
+<img src="https://img.shields.io/badge/GoogleCalendarParallelTest_5.gif-000000?style=flat&logo=google&logoColor=4285F4"/>
+-
+<img width="100%" src="https://user-images.githubusercontent.com/73505910/177665077-a3848882-c2b4-450b-b612-ef5d4d50be63.gif"/>
+
+<a href="https://drive.google.com/file/d/1lZhH_tubbSvm0eMvH_P0TWTdUsGBhJVS/view?usp=sharing"><img src="https://img.shields.io/badge/GoogleDrive-GoogleCalendarParallelTest_Full_Video_URL_(Click)-blue?style=flat-square&logo=GoogleDrive&logoColor=4285F4"/></a>
+
+---
+---
 
 </div>
